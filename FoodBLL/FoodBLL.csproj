@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FoodDAL\FoodDAL.csproj" />
-    <ProjectReference Include="..\FoodPL\FoodPL.csproj" />
   </ItemGroup>
 
 </Project>
