@@ -1,3 +1,6 @@
+using FoodDAL.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace FoodPL
 {
     public class Program
@@ -8,6 +11,9 @@ namespace FoodPL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<FoodDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("conn1"))
+            );
 
             var app = builder.Build();
 
