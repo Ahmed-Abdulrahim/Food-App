@@ -119,7 +119,7 @@ namespace FoodDAL.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("Cart");
+                    b.ToTable("Cart", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.Category", b =>
@@ -136,7 +136,7 @@ namespace FoodDAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.Coupon", b =>
@@ -168,7 +168,7 @@ namespace FoodDAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Coupon");
+                    b.ToTable("Coupon", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.Item", b =>
@@ -201,7 +201,7 @@ namespace FoodDAL.Migrations
 
                     b.HasIndex("SubCategoryId");
 
-                    b.ToTable("Item");
+                    b.ToTable("Item", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.Order.OrderDetails", b =>
@@ -233,7 +233,7 @@ namespace FoodDAL.Migrations
 
                     b.HasIndex("OrderHeaderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.Order.OrderHeader", b =>
@@ -288,7 +288,7 @@ namespace FoodDAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("OrderHeader");
+                    b.ToTable("OrderHeader", (string)null);
                 });
 
             modelBuilder.Entity("FoodDAL.Models.SubCategory", b =>
@@ -310,7 +310,7 @@ namespace FoodDAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("SubCategory");
+                    b.ToTable("SubCategory", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,3 +1,5 @@
+using FoodBLL.Interfaces;
+using FoodBLL.Repo;
 using FoodDAL.Context;
 using FoodDAL.Models.Auth;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +16,7 @@ namespace FoodPL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
             builder.Services.AddDbContext<FoodDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conn1"));
@@ -39,10 +42,13 @@ namespace FoodPL
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.MapControllerRoute(
+                  name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
             app.Run();
         }
