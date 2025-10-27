@@ -3,6 +3,7 @@ using FoodBLL.Repo;
 using FoodDAL.Models;
 using FoodPL.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace FoodPL.Areas.Admin.Controllers
 {
@@ -91,5 +92,34 @@ namespace FoodPL.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Details(int? id) 
+        {
+            if (id == null) return BadRequest();
+            var res = categoryRepo.GetByCategoryId(id.Value);
+            if (res == null) return NotFound();
+            var model = new CategoryVM
+            {
+                Title = res.Title,
+                Id = res.Id,
+            };
+            return View(model);
+           
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id) 
+        {
+            if (id == null) return BadRequest();
+            var model = categoryRepo.GetByCategoryId(id.Value);
+            if (model == null) return NotFound();
+             categoryRepo.Delete(model);
+            var res = await categoryRepo.Save();
+            if (res > 0) 
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
     }
 }
