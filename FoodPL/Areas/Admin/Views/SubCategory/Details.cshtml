@@ -1,0 +1,16 @@
+﻿@model SubCategory
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<form>
+    <label asp-for="Name" class="form-label fw-semibold"></label>
+    <input asp-for="Name" class="form-control shadow-sm" readonly />
+    <label asp-for="Categories" class="form-label fw-semibold"></label>
+    <input asp-for="Categories.Title" class="form-control shadow-sm" readonly />
+
+    <a class="btn btn-success fw-semibold shadow-sm px-4" asp-action="Index"> Back To list</a>
+</form>
+

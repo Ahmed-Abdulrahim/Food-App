@@ -1,6 +1,7 @@
 using FoodBLL.Interfaces;
 using FoodBLL.Repo;
 using FoodDAL.Context;
+using FoodDAL.Models;
 using FoodDAL.Models.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,8 @@ namespace FoodPL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+            builder.Services.AddScoped<IFoodRepo<Category>, CategoryRepo>();
+            builder.Services.AddScoped<IFoodRepo<SubCategory>, SubCategoryRepo>();
             builder.Services.AddDbContext<FoodDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conn1"));

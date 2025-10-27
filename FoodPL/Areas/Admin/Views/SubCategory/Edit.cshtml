@@ -1,0 +1,18 @@
+﻿@model SubCategory
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" method="post">
+    <label asp-for="Name" class="form-label fw-semibold"></label>
+    <input asp-for="Name" class="form-control shadow-sm" placeholder="Enter category title..." />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <select asp-for="CategoryId" asp-items="@ViewBag.Category">
+        <option>@Model.Categories.Title</option>
+    </select>
+
+    <input type="submit" class="btn btn-success fw-semibold shadow-sm px-4" value="Update" />
+</form>

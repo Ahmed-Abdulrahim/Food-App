@@ -1,0 +1,19 @@
+﻿@model SubCategory
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<form asp-action="Create" method="post">
+    <label asp-for="Name" class="form-label fw-semibold"></label>
+    <input asp-for="Name" class="form-control shadow-sm" placeholder="Enter category title..." />
+    <span asp-validation-for="Name" class="text-danger"></span>
+   <select asp-for="CategoryId" asp-items="@ViewBag.Category">
+       <option>Select Category</option>
+   </select>
+
+    <input type="submit" class="btn btn-success fw-semibold shadow-sm px-4" value="Create" />
+
+</form>

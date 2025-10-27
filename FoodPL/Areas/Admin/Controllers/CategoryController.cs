@@ -10,9 +10,9 @@ namespace FoodPL.Areas.Admin.Controllers
     [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepo categoryRepo;
+        private readonly IFoodRepo<Category> categoryRepo;
 
-        public CategoryController(ICategoryRepo _categoryRepo)
+        public CategoryController(IFoodRepo<Category> _categoryRepo)
         {
             categoryRepo = _categoryRepo;
         }

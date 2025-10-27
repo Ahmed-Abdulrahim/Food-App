@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FoodBLL.Repo
 {
-    public class CategoryRepo : ICategoryRepo
+    public class CategoryRepo : IFoodRepo<Category>
     {
         private readonly FoodDbContext context;
 

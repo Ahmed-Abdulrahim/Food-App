@@ -11,7 +11,7 @@ namespace FoodBLL.DTO
     {
         [Required(ErrorMessage ="User Name is Required") ]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "User Name is Required") ,MaxLength(50)]
+        [Required(ErrorMessage = "Name is Required") ,MaxLength(50)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress]
